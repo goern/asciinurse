@@ -1,0 +1,19 @@
+FROM fedora:21
+MAINTAINER Christoph Görn <goern@redhat.com>
+
+RUN yum install -y rubygem-asciidoctor asciidoc fop ditaa make java-1.8.0-openjdk-devel ruby-devel gcc-c++ && \
+    yum group install -y "Development Tools" && \
+    yum update -y && \
+    yum clean all 
+
+ENV JAVA_HOME /etc/alternatives/java_sdk_1.8.0_openjdk
+ENV PATH "/usr/bin:/etc/alternatives/java_sdk_1.8.0_openjdk"
+
+RUN gem install coderay rjb asciidoctor-diagram guard guard-shell rb-inotify rb-readline --no-rdoc --no-ri
+RUN yum erase -y make && yum group remove -y "Development Tools" && \
+    yum clean all 
+
+VOLUME /data
+WORKDIR /data
+
+CMD [ "guard", "-di", "--no-notify" ]
