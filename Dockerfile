@@ -1,8 +1,8 @@
 FROM fedora:21
-MAINTAINER Christoph Görn <goern@redhat.com>
+MAINTAINER Christoph Görn <goern@b4mad.net>
 
-LABEL Vendor="Red Hat" License=GPLv2
-LABEL Version=1.0
+LABEL Vendor="#B4mad.Net" License=GPLv2
+LABEL Version=1.0.0
 
 ENV container docker
 
