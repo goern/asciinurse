@@ -1,5 +1,5 @@
 = Asciinurse, a graduated caretaker for Asciidoctor patients
-Christoph Görn <goern@redhat.com>
+Christoph Görn <goern@b4mad.net>
 :description: Asciinurse will take care of your Asciidoctor files, her most important job is to convert the files to HTML5 on very change.
 :doctype: book
 :title-logo: images/nurseatwar.png
