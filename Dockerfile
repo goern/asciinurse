@@ -1,7 +1,12 @@
 FROM fedora:21
 MAINTAINER Christoph Görn <goern@redhat.com>
 
-RUN yum install -y rubygem-asciidoctor asciidoc fop ditaa make java-1.8.0-openjdk-devel ruby-devel gcc-c++ && \
+LABEL Vendor="Red Hat" License=GPLv2
+LABEL Version=1.0
+
+ENV container docker
+
+RUN yum install -y rubygem-asciidoctor asciidoc fop ditaa java-1.8.0-openjdk-devel ruby-devel && \
     yum group install -y "Development Tools" && \
     yum update -y && \
     yum clean all 
