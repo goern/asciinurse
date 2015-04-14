@@ -28,6 +28,13 @@ Fax: +1 919 754 3701 +
 PO Box 13588 + 
 Research Triangle Park NC 27709 USA + 
 
+= Asciinurse
 
-.Block image
+[quote, The Asciinurse, github.com]
+____
+*Doctor*, I will keep your HTML5 clean, and convert to it whenever you change an Asciidoc file.
+
+____
+
+.The Asciinurse
 image::images/nurseatwar.png[]
