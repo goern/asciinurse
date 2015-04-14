@@ -1,0 +1,30 @@
+= Asciinurse, a graduated caretaker for Asciidoctor patients
+Christoph Görn <goern@redhat.com>
+:description: Asciinurse will take care of your Asciidoctor files, her most important job is to convert the files to HTML5 on very change.
+:doctype: book
+:title-logo: images/nurseatwar.png
+:compat-mode:
+:experimental:
+:listing-caption: Listing
+:icons: font
+:toc:
+:toclevels: 3
+ifdef::backend-pdf[]
+:pagenums:
+:pygments-style: bw
+:source-highlighter: pygments
+endif::[]
+
+[abstract]
+//empty on purpose so that legal can be on separate page and not conflict with toc
+
+<<<
+ 
+100 East Davie Street + 
+Raleigh NC 27601 USA + 
+Phone: +1 919 754 3700 + 
+Phone: 888 733 4281 + 
+Fax: +1 919 754 3701 + 
+PO Box 13588 + 
+Research Triangle Park NC 27709 USA + 
+
