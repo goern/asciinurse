@@ -29,4 +29,5 @@ PO Box 13588 +
 Research Triangle Park NC 27709 USA + 
 
 
-![Alt text](/images/nurseatwar.png "Asciinurse")
+.Block image
+image::images/nurseatwar.png[]
