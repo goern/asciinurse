@@ -421,7 +421,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
-<ul class="sectlevel0">
+<ul class="sectlevel1">
 <li><a href="#_asciinurse">Asciinurse</a></li>
 <li><a href="#_her_mission">Her mission</a>
 <ul class="sectlevel1">
@@ -433,23 +433,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_asciinurse">Asciinurse</h2>
 <div class="sectionbody">
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>100 East Davie Street<br>
-Raleigh NC 27601 USA<br>
-Phone: +1 919 754 3700<br>
-Phone: 888 733 4281<br>
-Fax: +1 919 754 3701<br>
-PO Box 13588<br>
-Research Triangle Park NC 27709 USA<br></p>
-</div>
-</div>
-</div>
-<h1 id="_asciinurse" class="sect0">Asciinurse</h1>
-<div class="openblock partintro">
-<div class="content">
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
@@ -493,11 +479,11 @@ asciidoctor, ascidoctor-diagramm and guard.</p>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>To start asciinurse&#8217;s service just run <em>sudo docker run --rm -t -i -v
-<code>pwd</code>:/data cgoern/asciinurse</em> within the directory you have your
-asciidoctor stuff in&#8230;&#8203; it should download a few image layers on
-first start (like 1.4GB sorry for that). And hopefully it is available
-on your local docker registry, if not: build it.</p>
+<p>To start asciinurse&#8217;s service just run <code>docker run --rm -t -i -v
+$PWD:/data b4mad/asciinurse</code> within the directory you have your
+asciidoctor stuff in&#8230;&#8203; it should download a few image layers (it&#8217;s hosted/build on hub.docker.com) on
+first start (like 1.4GB, sorry for that). And hopefully it is available
+on your local docker registry, if not: build it or pull it!</p>
 </div>
 <div class="paragraph">
 <p>If you now change some stuff and save the file, she will take care of
@@ -508,14 +494,14 @@ it an convert it to HTML5.</p>
 </div>
 <div class="paragraph">
 <p>Afterwards you may want to put a handy alias in your .bashrc, something
-like <code>alias asciinurse='sudo docker run --rm -t -i -v $PWD:/data asciinurse'</code></p>
+like <code>alias asciinurse='sudo docker run --rm -t -i -v $PWD:/data b4mad/asciinurse'</code></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-14 11:54:59 EDT
+Last updated 2015-04-14 16:24:08 EDT
 </div>
 </div>
 </body>
