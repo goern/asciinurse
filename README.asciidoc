@@ -44,7 +44,7 @@ asciidoctor, ascidoctor-diagramm and guard.
 = Usage
 
 To start asciinurse's service just run `docker run --rm -t -i -v
-$PWD:/data b4mad/asciinurse` within the directory you have your 
+$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse` within the directory you have your 
 asciidoctor stuff in... it should download a few image layers (it's hosted/build on hub.docker.com) on 
 first start (like 1.4GB, sorry for that). And hopefully it is available 
 on your local docker registry, if not: build it or pull it!
@@ -55,4 +55,4 @@ it an convert it to HTML5.
 Stop the service container by ctrl-c or just start it in the background.
 
 Afterwards you may want to put a handy alias in your .bashrc, something 
-like `alias asciinurse='sudo docker run --rm -t -i -v $PWD:/data b4mad/asciinurse'`
+like `alias asciinurse='sudo docker run --rm -t -i -v $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'`
