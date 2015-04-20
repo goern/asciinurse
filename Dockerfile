@@ -18,9 +18,13 @@ RUN gem install coderay rjb asciidoctor-diagram guard guard-shell rb-inotify rb-
 RUN yum erase -y make && yum group remove -y "Development Tools" && \
     yum clean all 
 
+RUN mkdir /etc/asciinurse.d
+ADD Guardfile /etc/asciinurse.d/Guardfile
+
 ENV PATH /usr/bin:/usr/local/bin:/etc/alternatives/java_sdk_1.8.0_openjdk
 
 VOLUME /data
 WORKDIR /data
 
-CMD [ "guard", "-di", "--no-notify" ]
+CMD [ "guard", "-di", "--no-notify", "--watchdir", "/data", "--guardfile", "/etc/asciinurse.d/Guardfile" ]
+
