@@ -6,7 +6,7 @@ LABEL Version=1.0.0
 
 ENV container docker
 
-RUN yum install -y rubygem-asciidoctor asciidoc fop ditaa java-1.8.0-openjdk-devel ruby-devel && \
+RUN yum install -y gcc-c++ rubygem-asciidoctor asciidoc fop ditaa java-1.8.0-openjdk-devel ruby-devel && \
     yum group install -y "Development Tools" && \
     yum update -y && \
     yum clean all 
