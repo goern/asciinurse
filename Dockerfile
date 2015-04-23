@@ -2,7 +2,7 @@ FROM fedora:21
 MAINTAINER Christoph Görn <goern@b4mad.net>
 
 LABEL Vendor="#B4mad.Net" License=GPLv2
-LABEL Version=1.0.0
+LABEL Version=1.0.1
 
 ENV container docker
 

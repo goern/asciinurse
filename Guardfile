@@ -7,8 +7,10 @@ require 'erb'
 guard 'shell' do  
   watch(/^.*\.adoc$/)
   watch(/^.*\.asciidoc$/) { |m|
-    Asciidoctor.render_file(m[0], :in_place => true,  
-            :safe => 'unsafe')  
+    Asciidoctor.render_file(m[0], 
+                            :in_place => true,  
+                            :header_footer => true,
+                            :safe => 'unsafe')  
   }  
 
   callback(:start_begin) { 
