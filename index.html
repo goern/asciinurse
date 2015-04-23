@@ -423,12 +423,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_asciinurse">Asciinurse</a></li>
-<li><a href="#_her_mission">Her mission</a>
+<li><a href="#_her_mission">Her mission</a></li>
+<li><a href="#_usage">Usage</a>
 <ul class="sectlevel1">
 <li><a href="#_implementation">Implementation</a></li>
 </ul>
 </li>
-<li><a href="#_usage">Usage</a></li>
+<li><a href="#_changes">Changes</a>
+<ul class="sectlevel2">
+<li><a href="#_version_1_0_2_2015_04_23">Version 1.0.2 (2015-04-23)</a></li>
+</ul>
+</li>
+<li><a href="#_todo">TODO</a></li>
 </ul>
 </div>
 </div>
@@ -458,20 +464,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1 id="_her_mission" class="sect0">Her mission</h1>
 <div class="openblock partintro">
 <div class="content">
-She is a little tool, that will monitor your asciidoctor working directory
-for changes and convert the file set to html5 over and over again.
-</div>
-</div>
-<div class="sect1">
-<h2 id="_implementation">Implementation</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>She is implemented using docker to separate the asciidoctor software
-stack from the system, because we dont like software polution.</p>
+<p>She is a little tool, that will monitor your asciidoctor working directory
+for changes and convert the file set to html5 over and over again.</p>
 </div>
 <div class="paragraph">
-<p>So what asciinurse really is: a Fedora 21 based installation of
-asciidoctor, ascidoctor-diagramm and guard.</p>
+<p>Asciinurse is free software and is licenced under the terms of the GNU General Public License version 2 (GPLv2).</p>
 </div>
 </div>
 </div>
@@ -480,28 +478,72 @@ asciidoctor, ascidoctor-diagramm and guard.</p>
 <div class="content">
 <div class="paragraph">
 <p>To start asciinurse&#8217;s service just run <code>docker run --rm -t -i -v
-$PWD:/data b4mad/asciinurse</code> within the directory you have your
+$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse</code> within the directory you have your
 asciidoctor stuff in&#8230;&#8203; it should download a few image layers (it&#8217;s hosted/build on hub.docker.com) on
 first start (like 1.4GB, sorry for that). And hopefully it is available
 on your local docker registry, if not: build it or pull it!</p>
 </div>
 <div class="paragraph">
-<p>If you now change some stuff and save the file, she will take care of
+<p>If you now change something within your Asciidoc and save the file, she will take care of
 it an convert it to HTML5.</p>
 </div>
 <div class="paragraph">
 <p>Stop the service container by ctrl-c or just start it in the background.</p>
 </div>
 <div class="paragraph">
-<p>Afterwards you may want to put a handy alias in your .bashrc, something
-like <code>alias asciinurse='sudo docker run --rm -t -i -v $PWD:/data b4mad/asciinurse'</code></p>
+<p>Given all that, you may want to put a handy alias in your .bashrc, something
+like <code>alias asciinurse='docker run --rm --tty --interactive -v $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementation">Implementation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>She is implemented using a container to separate the asciidoctor software
+stack from the system, because we dont like software polution and love service containers.</p>
+</div>
+<div class="paragraph">
+<p>So what asciinurse really is: a Fedora 21 based installation of
+asciidoctor, ascidoctor-diagramm and guard.</p>
+</div>
+</div>
+</div>
+<h1 id="_changes" class="sect0">Changes</h1>
+<div class="openblock partintro">
+<div class="content">
+I try to keep log of the changes and try to use some <a href="https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html">GNU-like style</a>.
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_1_0_2_2015_04_23">Version 1.0.2 (2015-04-23)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>goern: added some more docs and bumped to Version 1.0.2</p>
+</li>
+</ul>
+</div>
+</div>
+<h1 id="_todo" class="sect0">TODO</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>We need to add PDF generation again, maybe on ctrl-c ?</p>
+</li>
+<li>
+<p>add livereload so that browser gets updated on each</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-14 16:26:43 EDT
+Last updated 2015-04-23 11:23:42 CEST
 </div>
 </div>
 </body>
