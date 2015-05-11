@@ -27,5 +27,7 @@ ENV PATH /usr/bin:/usr/local/bin:/etc/alternatives/java_sdk_1.8.0_openjdk
 VOLUME /data
 WORKDIR /data
 
+EXPOSE 35729
+
 CMD [ "guard", "-di", "--no-notify", "--watchdir", "/data", "--guardfile", "/etc/asciinurse.d/Guardfile" ]
 
