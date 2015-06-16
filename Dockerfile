@@ -1,11 +1,11 @@
-FROM fedora:21
+FROM fedora:22
 
 MAINTAINER Christoph Görn <goern@b4mad.net>
 
 LABEL Vendor="#B4mad.Net" License=GPLv2
-LABEL Version=1.1.0
+LABEL Version=1.1.1
 
-LABEL Build docker build --rm --tag goern/asciinurse .
+LABEL Build docker build --rm --tag goern/asciinurse:1.1.1 .
 
 ENV container docker
 
