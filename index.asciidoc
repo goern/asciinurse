@@ -28,7 +28,7 @@ ____
 .The Asciinurse
 image::images/nurseatwar.png[]
 
-= Her mission
+== Her mission
 
 She is a little tool, that will monitor your asciidoctor working directory 
 for changes and convert the file set to html5 over and over again.
@@ -51,7 +51,7 @@ information] on the versions available at docker.com and
 https://github.com/goern/asciinurse[Asciinurse's
 github repo] is also free for everyone.
 
-= Usage
+== Usage
 
 To start asciinurse's service just run `docker run --rm -t -i -v
 $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse` within the directory you have your 
@@ -75,6 +75,17 @@ to make an alias for that too) `docker run --rm -t -i -v $PWD:/data -v
 /etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
 somefile.adoc`.
 
+If you want to give your PDF a special style, apply a theme: `docker run --rm -t -i -v $PWD:/data -v
+/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -a pdf-style=rh-ra -v
+somefile.adoc`. This theme file needs to be included in the asciinurse container image. Here is a list of themes included:
+
+.Asciinurse themes
+|===
+|theme name |purpose 
+|rh-ra | Red Hat reference architecture
+|===
+
+
 == Implementation
 
 She is implemented using a container to separate the asciidoctor software
@@ -83,9 +94,12 @@ stack from the system, because we dont like software polution and love service c
 So what asciinurse really is: a Fedora 21 based installation of 
 asciidoctor, ascidoctor-diagramm and guard.
 
-= Changes
+== Changes
 
 I try to keep log of the changes and try to use some https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html[GNU-like style].
+
+=== Version 1.3.0 (2015-06-18)
+* goern: added a asciidoctor-pdf theme that will produce something that looks like a Red Hat Reference Architecture document. Many thanks to rlopez for providing the basics.
 
 === Version 1.2.0 (2015-06-18)
 * added
@@ -100,6 +114,3 @@ I try to keep log of the changes and try to use some https://www.gnu.org/prep/st
 === Version 1.0.2 (2015-04-23)
 * goern: added some more docs and bumped to Version 1.0.2
 
-= TODO
-
-* We need to add PDF generation again, maybe on ctrl-c ?
