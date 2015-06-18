@@ -28,28 +28,16 @@ ____
 .The Asciinurse
 image::images/nurseatwar.png[]
 
-= Her mission
+== Her mission
 
 She is a little tool, that will monitor your asciidoctor working directory 
 for changes and convert the file set to html5 over and over again.
 
 Asciinurse is free software and is licenced under the terms of the GNU General Public License version 2 (GPLv2).
 
-= Usage
+== Usage
 
-To start asciinurse's service just run `docker run --rm -t -i -v
-$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse` within the directory you have your 
-asciidoctor stuff in... it should download a few image layers (it's hosted/build on hub.docker.com) on 
-first start (like 1.4GB, sorry for that). And hopefully it is available 
-on your local docker registry, if not: build it or pull it!
-
-If you now change something within your Asciidoc and save the file, she will take care of
-it an convert it to HTML5.
-
-Stop the service container by ctrl-c or just start it in the background.
-
-Given all that, you may want to put a handy alias in your .bashrc, something 
-like `alias asciinurse='docker run --rm --tty --interactive -v $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'`
+For usage information please have a look at https://goern.github.io/asciinurse/[Asciinurse gitpage].
 
 == Implementation
 
@@ -59,9 +47,12 @@ stack from the system, because we dont like software polution and love service c
 So what asciinurse really is: a Fedora 21 based installation of 
 asciidoctor, ascidoctor-diagramm and guard.
 
-= Changes
+== Changes
 
 I try to keep log of the changes and try to use some https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html[GNU-like style].
+
+=== Version 1.3.0 (2015-06-18)
+* goern: added a asciidoctor-pdf theme that will produce something that looks like a Red Hat Reference Architecture document. Many thanks to rlopez for providing the basics.
 
 === Version 1.2.0 (2015-06-18)
 * added
@@ -76,7 +67,6 @@ I try to keep log of the changes and try to use some https://www.gnu.org/prep/st
 === Version 1.0.2 (2015-04-23)
 * goern: added some more docs and bumped to Version 1.0.2
 
-= TODO
+== TODO
 
-* We need to add PDF generation again, maybe on ctrl-c ?
-* add livereload so that browser gets updated on each 
+TODOs will be tracked using https://github.com/goern/asciinurse/issues[github issues].
