@@ -34,3 +34,5 @@ WORKDIR /data
 EXPOSE 35729
 
 CMD [ "guard", "-di", "--no-notify", "--watchdir", "/data", "--guardfile", "/etc/asciinurse.d/Guardfile" ]
+
+ADD rh-ra-asciidoctor-theme.yml /usr/local/share/gems/gems/asciidoctor-pdf-1.5.0.alpha.7/data/themes/rh-ra-theme.yml
