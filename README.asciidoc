@@ -63,6 +63,13 @@ asciidoctor, ascidoctor-diagramm and guard.
 
 I try to keep log of the changes and try to use some https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html[GNU-like style].
 
+=== Version 1.2.0 (2015-06-18)
+* added
+  http://asciidoctor.org/docs/convert-asciidoc-to-pdf/[asciidoctor-pdf]
+  so that we can use `docker run --rm -t -i -v $PWD:/data -v
+  /etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
+  <SOMEFILENAME>` to convert from adoc to pdf
+
 === Version 1.1.1 (2015-06-16)
 * changed the Dockerfile to be based on Fedora 22
 
