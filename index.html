@@ -423,7 +423,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_asciinurse">Asciinurse</a></li>
-<li><a href="#_her_mission">Her mission</a></li>
+<li><a href="#_her_mission">Her mission</a>
+<ul class="sectlevel1">
+<li><a href="#_documentation">Documentation</a></li>
+<li><a href="#_get_her_now">Get her, now!</a></li>
+</ul>
+</li>
 <li><a href="#_usage">Usage</a>
 <ul class="sectlevel1">
 <li><a href="#_implementation">Implementation</a></li>
@@ -472,6 +477,30 @@ for changes and convert the file set to html5 over and over again.</p>
 </div>
 <div class="paragraph">
 <p>Asciinurse is free software and is licenced under the terms of the GNU General Public License version 2 (GPLv2).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_documentation">Documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You are right now looking at it, this file is located at
+<a href="https://goern.github.io/asciinurse/" class="bare">https://goern.github.io/asciinurse/</a> and can also be downloaded as
+<a href="https://goern.github.io/asciinurse/index.pdf">PDF</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_get_her_now">Get her, now!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I provide ready to use docker container images of Asciinurse, please
+use <code>docker pull b4mad/asciinurse</code> to get the latest version docker
+container image.
+<a href="https://registry.hub.docker.com/u/b4mad/asciinurse/tags/manage/">Detailed
+information</a> on the versions available at docker.com and
+<a href="https://github.com/goern/asciinurse">Asciinurse&#8217;s
+github repo</a> is also free for everyone.</p>
 </div>
 </div>
 </div>
@@ -568,9 +597,6 @@ so that we can use <code>docker run --rm -t -i -v $PWD:/data -v
 <li>
 <p>We need to add PDF generation again, maybe on ctrl-c ?</p>
 </li>
-<li>
-<p>add livereload so that browser gets updated on each</p>
-</li>
 </ul>
 </div>
 </div>
@@ -578,7 +604,7 @@ so that we can use <code>docker run --rm -t -i -v $PWD:/data -v
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-06-18 13:38:14 CEST
+Last updated 2015-06-18 13:59:11 CEST
 </div>
 </div>
 <!-- Piwik -->

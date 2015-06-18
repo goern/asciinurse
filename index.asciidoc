@@ -35,6 +35,22 @@ for changes and convert the file set to html5 over and over again.
 
 Asciinurse is free software and is licenced under the terms of the GNU General Public License version 2 (GPLv2).
 
+== Documentation
+
+You are right now looking at it, this file is located at
+https://goern.github.io/asciinurse/ and can also be downloaded as
+https://goern.github.io/asciinurse/index.pdf[PDF].
+
+== Get her, now!
+
+I provide ready to use docker container images of Asciinurse, please
+use `docker pull b4mad/asciinurse` to get the latest version docker
+container image.
+https://registry.hub.docker.com/u/b4mad/asciinurse/tags/manage/[Detailed
+information] on the versions available at docker.com and
+https://github.com/goern/asciinurse[Asciinurse's
+github repo] is also free for everyone.
+
 = Usage
 
 To start asciinurse's service just run `docker run --rm -t -i -v
@@ -87,4 +103,3 @@ I try to keep log of the changes and try to use some https://www.gnu.org/prep/st
 = TODO
 
 * We need to add PDF generation again, maybe on ctrl-c ?
-* add livereload so that browser gets updated on each 
