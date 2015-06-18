@@ -431,6 +431,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_changes">Changes</a>
 <ul class="sectlevel2">
+<li><a href="#_version_1_2_0_2015_06_18">Version 1.2.0 (2015-06-18)</a></li>
+<li><a href="#_version_1_1_1_2015_06_16">Version 1.1.1 (2015-06-16)</a></li>
 <li><a href="#_version_1_0_2_2015_04_23">Version 1.0.2 (2015-04-23)</a></li>
 </ul>
 </li>
@@ -480,7 +482,7 @@ for changes and convert the file set to html5 over and over again.</p>
 <p>To start asciinurse&#8217;s service just run <code>docker run --rm -t -i -v
 $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse</code> within the directory you have your
 asciidoctor stuff in&#8230;&#8203; it should download a few image layers (it&#8217;s hosted/build on hub.docker.com) on
-first start (like 1.4GB, sorry for that). And hopefully it is available
+first start (like 1GB, sorry for that). And hopefully it is available
 on your local docker registry, if not: build it or pull it!</p>
 </div>
 <div class="paragraph">
@@ -492,7 +494,16 @@ it an convert it to HTML5.</p>
 </div>
 <div class="paragraph">
 <p>Given all that, you may want to put a handy alias in your .bashrc, something
-like <code>alias asciinurse='docker run --rm --tty --interactive -v $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'</code></p>
+like <code>alias asciinurse='docker run --rm --tty --interactive -v
+$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'</code>.</p>
+</div>
+<div class="paragraph">
+<p>Starting with version 1.2.0 asciidoctor-pdf is included and may be
+used to generate PDF output. This is not supported when running as a
+service. To convert <code>somefile.adoc</code> to PDF you need to call (don&#8217;t forget
+to make an alias for that too) <code>docker run --rm -t -i -v $PWD:/data -v
+/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
+somefile.adoc</code>.</p>
 </div>
 </div>
 </div>
@@ -513,6 +524,30 @@ asciidoctor, ascidoctor-diagramm and guard.</p>
 <div class="openblock partintro">
 <div class="content">
 I try to keep log of the changes and try to use some <a href="https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html">GNU-like style</a>.
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_1_2_0_2015_06_18">Version 1.2.0 (2015-06-18)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>added
+<a href="http://asciidoctor.org/docs/convert-asciidoc-to-pdf/">asciidoctor-pdf</a>
+so that we can use <code>docker run --rm -t -i -v $PWD:/data -v
+/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
+&lt;SOMEFILENAME&gt;</code> to convert from adoc to pdf</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_1_1_1_2015_06_16">Version 1.1.1 (2015-06-16)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>changed the Dockerfile to be based on Fedora 22</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -543,7 +578,7 @@ I try to keep log of the changes and try to use some <a href="https://www.gnu.or
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-23 11:23:42 CEST
+Last updated 2015-06-18 12:20:50 CEST
 </div>
 </div>
 </body>

@@ -1,0 +1,90 @@
+= Asciinurse, a graduated caretaker for Asciidoctor patients
+Christoph Görn <goern@b4mad.net>
+:description: Asciinurse will take care of your Asciidoctor files, her most important job is to convert the files to HTML5 on very change.
+:doctype: book
+:title-logo: images/nurseatwar.png
+:compat-mode:
+:experimental:
+:listing-caption: Listing
+:icons: font
+:toc:
+:toclevels: 3
+ifdef::backend-pdf[]
+:pagenums:
+:pygments-style: bw
+:source-highlighter: pygments
+endif::[]
+
+[abstract]
+
+= Asciinurse
+
+[quote, The Asciinurse, github.com]
+____
+*Doctor*, I will keep your HTML5 clean, and convert to it whenever you change an Asciidoc file.
+
+____
+
+.The Asciinurse
+image::images/nurseatwar.png[]
+
+= Her mission
+
+She is a little tool, that will monitor your asciidoctor working directory 
+for changes and convert the file set to html5 over and over again.
+
+Asciinurse is free software and is licenced under the terms of the GNU General Public License version 2 (GPLv2).
+
+= Usage
+
+To start asciinurse's service just run `docker run --rm -t -i -v
+$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse` within the directory you have your 
+asciidoctor stuff in... it should download a few image layers (it's hosted/build on hub.docker.com) on 
+first start (like 1GB, sorry for that). And hopefully it is available 
+on your local docker registry, if not: build it or pull it!
+
+If you now change something within your Asciidoc and save the file, she will take care of
+it an convert it to HTML5.
+
+Stop the service container by ctrl-c or just start it in the background.
+
+Given all that, you may want to put a handy alias in your .bashrc, something 
+like `alias asciinurse='docker run --rm --tty --interactive -v
+$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'`.
+
+Starting with version 1.2.0 asciidoctor-pdf is included and may be
+used to generate PDF output. This is not supported when running as a
+service. To convert `somefile.adoc` to PDF you need to call (don't forget
+to make an alias for that too) `docker run --rm -t -i -v $PWD:/data -v
+/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
+somefile.adoc`.
+
+== Implementation
+
+She is implemented using a container to separate the asciidoctor software
+stack from the system, because we dont like software polution and love service containers.
+
+So what asciinurse really is: a Fedora 21 based installation of 
+asciidoctor, ascidoctor-diagramm and guard.
+
+= Changes
+
+I try to keep log of the changes and try to use some https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html[GNU-like style].
+
+=== Version 1.2.0 (2015-06-18)
+* added
+  http://asciidoctor.org/docs/convert-asciidoc-to-pdf/[asciidoctor-pdf]
+  so that we can use `docker run --rm -t -i -v $PWD:/data -v
+  /etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
+  <SOMEFILENAME>` to convert from adoc to pdf
+
+=== Version 1.1.1 (2015-06-16)
+* changed the Dockerfile to be based on Fedora 22
+
+=== Version 1.0.2 (2015-04-23)
+* goern: added some more docs and bumped to Version 1.0.2
+
+= TODO
+
+* We need to add PDF generation again, maybe on ctrl-c ?
+* add livereload so that browser gets updated on each 
