@@ -53,20 +53,23 @@ github repo] is also free for everyone.
 
 == Usage
 
+Asciinurse could be used as a service that will convert your Asciidoc to html5 and utilize livereload of your browser view. Or she can generate a PDF for you, eg after you have finished editing your document.
+
+=== I want her to constantly serve me
+
 To start asciinurse's service just run `docker run --rm -t -i -v
 $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse` within the directory you have your 
 asciidoctor stuff in... it should download a few image layers (it's hosted/build on hub.docker.com) on 
-first start (like 1GB, sorry for that). And hopefully it is available 
-on your local docker registry, if not: build it or pull it!
+first start (like 1GB, sorry for that). And hopefully it is available on your local docker registry, if not: build it or pull it!
 
-If you now change something within your Asciidoc and save the file, she will take care of
-it an convert it to HTML5.
+Now, if you change something within your Asciidoc and save the file, she will take care of it an convert it to HTML5. Ditaa diagrams are supported.
 
-Stop the service container by ctrl-c or just start it in the background.
+Stop the service container by ctrl-c.
 
 Given all that, you may want to put a handy alias in your .bashrc, something 
-like `alias asciinurse='docker run --rm --tty --interactive -v
-$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'`.
+like `alias asciinurse='docker run --rm --tty --interactive -v $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'`.
+
+=== I need a PDF, please.
 
 Starting with version 1.2.0 asciidoctor-pdf is included and may be
 used to generate PDF output. This is not supported when running as a
@@ -89,10 +92,9 @@ somefile.adoc`. This theme file needs to be included in the asciinurse container
 == Implementation
 
 She is implemented using a container to separate the asciidoctor software
-stack from the system, because we dont like software polution and love service containers.
+stack from the rest of your software/system, because we dont like software polution and love service containers.
 
-So what asciinurse really is: a Fedora 21 based installation of 
-asciidoctor, ascidoctor-diagramm and guard.
+So what asciinurse really is: a Fedora 22 based installation of asciidoctor, ascidoctor-diagramm, asciidoctor-pdf and guard. And all it's dependencies.
 
 == Changes
 
