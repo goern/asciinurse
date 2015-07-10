@@ -435,6 +435,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_implementation">Implementation</a></li>
 <li><a href="#_changes">Changes</a>
 <ul class="sectlevel2">
+<li><a href="#_version_1_4_1_2015_07_10">Version 1.4.1 (2015-07-10)</a></li>
 <li><a href="#_version_1_3_0_2015_06_18">Version 1.3.0 (2015-06-18)</a></li>
 <li><a href="#_version_1_2_0_2015_06_18">Version 1.2.0 (2015-06-18)</a></li>
 <li><a href="#_version_1_1_1_2015_06_16">Version 1.1.1 (2015-06-16)</a></li>
@@ -513,7 +514,7 @@ github repo</a> is also free for everyone.</p>
 <h3 id="_i_want_her_to_constantly_serve_me">I want her to constantly serve me</h3>
 <div class="paragraph">
 <p>To start asciinurse&#8217;s service just run <code>docker run --rm -t -i -v
-$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse</code> within the directory you have your
+$PWD:/documents -v /etc/localtime:/etc/localtime b4mad/asciinurse</code> within the directory you have your
 asciidoctor stuff in&#8230;&#8203; it should download a few image layers (it&#8217;s hosted/build on hub.docker.com) on
 first start (like 1GB, sorry for that). And hopefully it is available on your local docker registry, if not: build it or pull it!</p>
 </div>
@@ -525,7 +526,7 @@ first start (like 1GB, sorry for that). And hopefully it is available on your lo
 </div>
 <div class="paragraph">
 <p>Given all that, you may want to put a handy alias in your .bashrc, something
-like <code>alias asciinurse='docker run --rm --tty --interactive -v $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'</code>.</p>
+like <code>alias asciinurse='docker run --rm --tty --interactive -v $PWD:/documents -v /etc/localtime:/etc/localtime b4mad/asciinurse'</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -534,14 +535,10 @@ like <code>alias asciinurse='docker run --rm --tty --interactive -v $PWD:/data -
 <p>Starting with version 1.2.0 asciidoctor-pdf is included and may be
 used to generate PDF output. This is not supported when running as a
 service. To convert <code>somefile.adoc</code> to PDF you need to call (don&#8217;t forget
-to make an alias for that too) <code>docker run --rm -t -i -v $PWD:/data -v
-/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
-somefile.adoc</code>.</p>
+to make an alias for that too) <code>docker run --rm -t -i -v $PWD:/documents -v /etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v somefile.adoc</code>.</p>
 </div>
 <div class="paragraph">
-<p>If you want to give your PDF a special style, apply a theme: <code>docker run --rm -t -i -v $PWD:/data -v
-/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -a pdf-style=rh-ra -v
-somefile.adoc</code>. This theme file needs to be included in the asciinurse container image. Here is a list of themes included:</p>
+<p>If you want to give your PDF a special style, apply a theme: <code>docker run --rm -t -i -v $PWD:/documents -v /etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -a pdf-style=rh-ra -v somefile.adoc</code>. This theme file needs to be included in the asciinurse container image. Here is a list of themes included:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. Asciinurse themes</caption>
@@ -580,6 +577,17 @@ stack from the rest of your software/system, because we dont like software polut
 <div class="sectionbody">
 <div class="paragraph">
 <p>I try to keep log of the changes and try to use some <a href="https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html">GNU-like style</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_version_1_4_1_2015_07_10">Version 1.4.1 (2015-07-10)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>goern: changed the VOLUME we use to be /documents to make it feel a
+little more than docker-asciidoctor.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_version_1_3_0_2015_06_18">Version 1.3.0 (2015-06-18)</h3>
@@ -630,7 +638,7 @@ so that we can use <code>docker run --rm -t -i -v $PWD:/data -v
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-06-19 12:14:21 CEST
+Last updated 2015-07-10 11:53:52 CEST
 </div>
 </div>
 <!-- Piwik -->

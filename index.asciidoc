@@ -58,7 +58,7 @@ Asciinurse could be used as a service that will convert your Asciidoc to html5 a
 === I want her to constantly serve me
 
 To start asciinurse's service just run `docker run --rm -t -i -v
-$PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse` within the directory you have your 
+$PWD:/documents -v /etc/localtime:/etc/localtime b4mad/asciinurse` within the directory you have your 
 asciidoctor stuff in... it should download a few image layers (it's hosted/build on hub.docker.com) on 
 first start (like 1GB, sorry for that). And hopefully it is available on your local docker registry, if not: build it or pull it!
 
@@ -67,20 +67,16 @@ Now, if you change something within your Asciidoc and save the file, she will ta
 Stop the service container by ctrl-c.
 
 Given all that, you may want to put a handy alias in your .bashrc, something 
-like `alias asciinurse='docker run --rm --tty --interactive -v $PWD:/data -v /etc/localtime:/etc/localtime b4mad/asciinurse'`.
+like `alias asciinurse='docker run --rm --tty --interactive -v $PWD:/documents -v /etc/localtime:/etc/localtime b4mad/asciinurse'`.
 
 === I need a PDF, please.
 
 Starting with version 1.2.0 asciidoctor-pdf is included and may be
 used to generate PDF output. This is not supported when running as a
 service. To convert `somefile.adoc` to PDF you need to call (don't forget
-to make an alias for that too) `docker run --rm -t -i -v $PWD:/data -v
-/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v
-somefile.adoc`.
+to make an alias for that too) `docker run --rm -t -i -v $PWD:/documents -v /etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -v somefile.adoc`.
 
-If you want to give your PDF a special style, apply a theme: `docker run --rm -t -i -v $PWD:/data -v
-/etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -a pdf-style=rh-ra -v
-somefile.adoc`. This theme file needs to be included in the asciinurse container image. Here is a list of themes included:
+If you want to give your PDF a special style, apply a theme: `docker run --rm -t -i -v $PWD:/documents -v /etc/localtime:/etc/localtime asciinurse asciidoctor-pdf -a pdf-style=rh-ra -v somefile.adoc`. This theme file needs to be included in the asciinurse container image. Here is a list of themes included:
 
 .Asciinurse themes
 |===
@@ -99,6 +95,10 @@ So what asciinurse really is: a Fedora 22 based installation of asciidoctor, asc
 == Changes
 
 I try to keep log of the changes and try to use some https://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html[GNU-like style].
+
+=== Version 1.4.1 (2015-07-10)
+* goern: changed the VOLUME we use to be /documents to make it feel a
+  little more than docker-asciidoctor.
 
 === Version 1.3.0 (2015-06-18)
 * goern: added a asciidoctor-pdf theme that will produce something that looks like a Red Hat Reference Architecture document. Many thanks to rlopez for providing the basics.
