@@ -23,7 +23,7 @@ RUN gem install --no-ri --no-rdoc rjb guard guard-shell guard-livereload rb-read
     gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.9 && \
     gem install --no-ri --no-rdoc --pre asciidoctor-diagram && \
     gem install --no-ri --no-rdoc coderay pygments.rb thread_safe epubcheck kindlegen && \
-    gem install --no-ri --no-rdoc slim haml tilt && \
+    gem install --no-ri --no-rdoc slim haml tilt
 RUN    dnf install -y --setopt=tsflags=nodocs wget python-devel zlib-devel 
 RUN    wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python && \
     easy_install "blockdiag[pdf]" && \
