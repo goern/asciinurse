@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'haml'
 require 'asciidoctor'
 require 'git'
 
