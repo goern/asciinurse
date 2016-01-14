@@ -42,7 +42,7 @@ end
 
 get '/:user/:repo/:filename' do
   # clone the github repository
-  Git.clone "git://github.com/#{params['user']}/#{params['repo']}.git", @dir
+  Git.clone "https://github.com/#{params['user']}/#{params['repo']}.git", @dir
 
   # check if filename ends with .adoc or .asciidoc
 
