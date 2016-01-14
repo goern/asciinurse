@@ -28,6 +28,8 @@ GEM
     guard-shell (0.7.1)
       guard (>= 2.0.0)
       guard-compat (~> 1.0)
+    haml (4.0.7)
+      tilt
     http_parser.rb (0.6.0)
     listen (3.0.5)
       rb-fsevent (>= 0.9.3)
@@ -43,6 +45,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.15.3)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -67,4 +70,6 @@ DEPENDENCIES
   guard
   guard-livereload
   guard-shell
+  haml
+  puma
   sinatra
