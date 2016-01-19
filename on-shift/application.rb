@@ -42,7 +42,14 @@ end
 
 get '/:user/:repo/:filename' do
   # clone the github repository
-  Git.clone "https://github.com/#{params['user']}/#{params['repo']}.git", @dir
+  g = Git.init @dir
+  g.config('user.name', 'default')
+  g.config('user.email', 'clone-user@example.com')
+  # g.checkout('master')
+
+  g.add_remote('upstream', "https://github.com/#{params['user']}/#{params['repo']}.git")
+  g.remote('upstream').fetch
+  g.remote('upstream').merge('master')
 
   # check if filename ends with .adoc or .asciidoc
 
